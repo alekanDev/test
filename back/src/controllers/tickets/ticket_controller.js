@@ -63,6 +63,7 @@ export const GetTickets = async (req, res) => {
   const { token } = req.cookies
 
   const validation = await TokenValidator(token)
+  console.log(validation)
 
   if (!validation.status) {
     return res.status(401).json({

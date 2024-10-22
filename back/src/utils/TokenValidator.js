@@ -9,12 +9,12 @@ export const TokenValidator = (token) => {
   try {
     const infoUser = jwt.verify(token, SECRET_KEY)
     DBConnect(true)
-    if (infoUser.rol !== 'admin') {
-      return ({
-        status: false,
-        message: 'Acción NO Autorizado'
-      })
-    }
+    // if (infoUser.rol !== 'admin') {
+    //   return ({
+    //     status: false,
+    //     message: 'Acción NO Autorizado'
+    //   })
+    // }
     return ({
       status: true,
       isUser: infoUser
