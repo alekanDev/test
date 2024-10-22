@@ -1,0 +1,4 @@
+node_modules
+Dokerfile
+docker-compose.yml
+.next
