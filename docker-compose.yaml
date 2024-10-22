@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: DockerFile
+    ports: -'5000:5000'
+    volumes:
+      - ./backend:/usr/src/app/back
+    environment:
+      - NODE_ENV=development
+      - PORT=${PORT}
+      - SECRET_JWT=${SECRET_JWT}
+      - URL_MONGO_SERVER=${URL_MONGO_SERVER}
+    depends_on:
+      - frontend
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: DockerFile
+    ports: -'3000:3000'
+    volumes: -./frontend:/usr/src/app/front
+    environment:
+      - NODE_ENV=development
